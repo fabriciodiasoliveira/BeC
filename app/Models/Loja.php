@@ -13,7 +13,7 @@ class Loja extends Model
         return Loja::query()->select('*')->get();
     }
     public function remove($id){
-        Loja::destroy($id);
+        Loja::where('loja_id', $id)->delete();
     }
     public function store(array $options = [])
     {

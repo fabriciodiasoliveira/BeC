@@ -35,18 +35,22 @@ class LojaController extends Controller
     }
     public function show($id)
     {
-        
+        $loja = $this->model_loja->getLoja($id);
+        return response()->json($loja);
     }
     public function edit($id)
     {
-        
+        $loja = $this->model_loja->getLoja($id);
+        return view('loja.edit', compact('loja'));
     }
     public function update(Request $request, $id)
     {
-        
+        $this->model_loja->updateWingoutModel($id,$this->setData($request));
+        return redirect(route('lojas'))->with('success', 'Loja adicionada com sucesso');   
     }
     public function destroy($id)
     {
-        
+        $this->model_loja->remove($id);
+        return redirect(route('lojas'))->with('info', 'Loja eliminada com sucesso'); 
     }
 }

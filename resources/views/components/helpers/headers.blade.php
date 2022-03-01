@@ -13,3 +13,5 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<!--JQuery-->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>

@@ -51,8 +51,9 @@
     </div>
 </form>
 @else
-<form class="form-horizontal" method="POST" action="{{ route('loja.store') }} ">
+<form class="form-horizontal" method="POST" action="{{ route('loja.update', $loja->loja_id) }} ">
     {{ csrf_field() }}
+    <input type="hidden" name="_method" value="PUT" />
     <div class="row mb-3">
         <label for="nome" class="col-md-4 col-form-label text-md-end">{{ __('Nome da Loja') }}</label>
 

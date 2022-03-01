@@ -7,7 +7,7 @@
             {{ config('app.name', 'Laravel') }}
         </div>
         <div class="col-md-12">
-            <a href="{{ route('lojas')}}">JSON Lojas</a>
+            <a class="btn btn-primary" href="{{ route('lojas')}}">Cadastro de Lojas</a>
         </div>
     </div>
 </div>
