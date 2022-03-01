@@ -24,7 +24,7 @@
             <p class="card-text">Lista de produtos.</p>
             <div class="row">
                 <div class="col-md-12">
-                    Use o link "http://servidor/produto/id" para retornar um json do produto.
+                    Use o link "http://{{ $_SERVER['HTTP_HOST'] }}/produto/id" para retornar um json do produto.
                 </div>
             </div>
             <div class="row">

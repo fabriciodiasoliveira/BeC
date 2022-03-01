@@ -3,7 +3,12 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-primary" href="{{ route('departamento.create', $loja->loja_id) }}">Novo departamento para {{ $loja->nome }}</a>
+        <h1>{{ $loja->nome }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-primary" href="{{ route('departamento.create', $loja->loja_id) }}">Novo departamento</a>
     </div>
 </div>
 <div class="col-md-12 d-flex justify-content-center">
@@ -14,7 +19,7 @@
             <p class="card-text">Lista de departamentos.</p>
             <div class="row">
                 <div class="col-md-12">
-                    Use o link "http://servidor/departamento/id" para retornar um json da departamento.
+                    Use o link "http://{{ $_SERVER['HTTP_HOST'] }}/departamento/id" para retornar um json do departamento.
                 </div>
             </div>
             <div class="row">

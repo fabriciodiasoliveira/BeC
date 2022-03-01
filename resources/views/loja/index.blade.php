@@ -14,7 +14,7 @@
             <p class="card-text">Lista de lojas.</p>
             <div class="row">
                 <div class="col-md-12">
-                    Use o link "http://servidor/loja/id" para retornar um json da loja.
+                    Use o link "http://{{ $_SERVER['HTTP_HOST'] }}/loja/id" para retornar um json da loja.
                 </div>
             </div>
             <div class="row">
