@@ -29,7 +29,7 @@
 <form class="form-horizontal" method="POST" action="{{ route('departamento.update', $departamento->departamento_id) }} ">
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="PUT" />
-    <input type="hidden" name="loja_id" value="{{ $loja->loja_id }}" />
+    <input type="hidden" name="loja_id" value="{{ $departamento->loja_id }}" />
     <div class="row mb-3">
         <label for="nome" class="col-md-4 col-form-label text-md-end">{{ __('Nome do Departamento') }}</label>
 

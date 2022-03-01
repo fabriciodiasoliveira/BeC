@@ -24,7 +24,7 @@ class Departamento extends Model
     }
     public function getDepartamento($id)
     {
-        return Departamento::query()->select('*')->where('departamento_id', '=', $id)->get();
+        return Departamento::query()->select('*')->where('departamento_id', '=', $id)->first();
     }
     public function updateWingoutModel($id, Array $options)
     {

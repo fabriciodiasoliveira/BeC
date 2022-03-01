@@ -7,9 +7,9 @@
             <div class="card" style="width: 100%;">
                 <!--<img class="card-img-top" src="..." alt="Card image cap">-->
                 <div class="card-body">
-                    <h5 class="card-title">Alterar loja</h5>
-                    <p class="card-text">Modifique os dados da loja.</p>
-                    @component('components.loja.loja', compact('loja'))@endcomponent
+                    <h5 class="card-title">Alterar departamento</h5>
+                    <p class="card-text">Modifique os dados da departamento.</p>
+                    @component('components.departamento.departamento', compact('departamento'))@endcomponent
                 </div>
             </div>
         </div>
