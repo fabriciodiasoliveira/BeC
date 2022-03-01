@@ -46,7 +46,7 @@ class LojaController extends Controller
     public function update(Request $request, $id)
     {
         $this->model_loja->updateWingoutModel($id,$this->setData($request));
-        return redirect(route('lojas'))->with('success', 'Loja adicionada com sucesso');   
+        return redirect(route('lojas'))->with('success', 'Loja modificada com sucesso');   
     }
     public function destroy($id)
     {

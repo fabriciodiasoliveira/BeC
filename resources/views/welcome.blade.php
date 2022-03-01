@@ -6,6 +6,8 @@
         <div class="col-md-12">
             {{ config('app.name', 'Laravel') }}
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <a class="btn btn-primary" href="{{ route('lojas')}}">Cadastro de Lojas</a>
         </div>

@@ -8,12 +8,15 @@ class Departamento extends Model
 {
     protected $table = "departamento";
     protected $fillable = ['nome', 'loja_id'];
-    public function getAllDepartamentos()
+    public function getAllDepartamentos($id)
     {
-        return Departamento::query()->select('*')->get();
+        return Departamento::query()
+                ->select('*')
+                ->where('loja_id', '=', $id)
+                ->get();
     }
     public function remove($id){
-        Departamento::destroy($id);
+        Departamento::where('departamento_id', $id)->delete();
     }
     public function store(array $options = [])
     {

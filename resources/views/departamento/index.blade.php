@@ -3,18 +3,18 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-primary" href="{{ route('loja.create') }}">Nova Loja</a>
+        <a class="btn btn-primary" href="{{ route('departamento.create', $loja->loja_id) }}">Novo departamento para {{ $loja->nome }}</a>
     </div>
 </div>
 <div class="col-md-12 d-flex justify-content-center">
     <div class="card" style="width: 70%;">
         <!--<img class="card-img-top" src="..." alt="Card image cap">-->
         <div class="card-body">
-            <h5 class="card-title">Nossas lojas</h5>
-            <p class="card-text">Lista de lojas.</p>
+            <h5 class="card-title">Departamentos de {{ $loja->nome }}</h5>
+            <p class="card-text">Lista de departamentos.</p>
             <div class="row">
                 <div class="col-md-12">
-                    Use o link "http://servidor/loja/id" para retornar um json da loja.
+                    Use o link "http://servidor/departamento/id" para retornar um json da departamento.
                 </div>
             </div>
             <div class="row">
@@ -24,37 +24,31 @@
                 <div class="col-md-7">
                     <b>Nome</b>
                 </div>
-                <div class="col-md-1">
-                    <b>Latitude</b>
-                </div>
-                <div class="col-md-1">
-                    <b>Longitude</b>
+                <div class="col-md-2">
+                    <b>Loja</b>
                 </div>
             </div>
-            @foreach( $lojas as $loja)
+            @foreach( $departamentos as $departamento)
             <div class="row">
                 <div class="col-md-1">
-                    {{ $loja->loja_id }}
+                    {{ $departamento->departamento_id }}
                 </div>
                 <div class="col-md-7">
-                    <a href="{{ route('departamentos', $loja->loja_id) }}">{{ $loja->nome }}</a>
+                    {{ $departamento->nome }}
+                </div>
+                <div class="col-md-2">
+                    {{ $loja->nome }}
                 </div>
                 <div class="col-md-1">
-                    {{ $loja->lat }}
+                    <a class="btn btn-primary" href="{{ route('departamento.edit', $departamento->departamento_id) }}">Editar</a>
                 </div>
                 <div class="col-md-1">
-                    {{ $loja->longt }}
-                </div>
-                <div class="col-md-1">
-                    <a class="btn btn-primary" href="{{ route('loja.edit', $loja->loja_id) }}">Editar</a>
-                </div>
-                <div class="col-md-1">
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ $loja->loja_id  }}">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ $departamento->departamento_id  }}">
                         Excluir
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="modal-{{ $loja->loja_id  }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-{{ $departamento->departamento_id  }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -62,14 +56,14 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Excluir {{ $loja->nome }}
+                                    Excluir {{ $departamento->nome }}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="button" class="btn btn-danger" onclick='$("#{{ $loja->loja_id  }}").submit();'>Deletar</button>
+                                    <button type="button" class="btn btn-danger" onclick='$("#{{ $departamento->departamento_id  }}").submit();'>Deletar</button>
                                 </div>
                             </div>
-                            <form id="{{ $loja->loja_id  }}" action="{{ route ('loja.destroy', $loja->loja_id ) }}" method="post">
+                            <form id="{{ $departamento->departamento_id  }}" action="{{ route ('departamento.destroy', $departamento->departamento_id ) }}" method="post">
                                 {{ csrf_field() }}
                                 <input type='hidden' name='_method' value='DELETE' />
                             </form>
