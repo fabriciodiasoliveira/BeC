@@ -8,9 +8,18 @@ class Produto extends Model
 {
     protected $table = "produto";
     protected $fillable = ['nome', 'preco', 'loja_id', 'departamento_id'];
-    public function getAllProdutos()
+    public function getAllProdutos($id)
     {
-        return Produto::query()->select('*')->get();
+        $produtos = Produto::query()
+                ->select('*')
+                ->where('departamento_id', '=', $id)
+                ->get();
+        $produtos_formatados = array();
+        foreach($produtos as $produto){
+            $produto->preco = 'R$'.number_format($produto->preco, 2, ',','');
+            array_push($produtos_formatados, $produto);
+        }
+        return $produtos_formatados;
     }
     public function remove($id){
         Produto::destroy($id);

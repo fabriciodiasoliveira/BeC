@@ -3,7 +3,17 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <a class="btn btn-primary" href="{{ route('departamento.create', $loja->loja_id) }}">Novo departamento para {{ $loja->nome }}</a>
+        <h1>{{ $loja->nome }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{ $departamento->nome }}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a class="btn btn-primary" href="{{ route('produto.create', $departamento->departamento_id) }}">Novo produto</a>
     </div>
 </div>
 <div class="col-md-12 d-flex justify-content-center">
@@ -11,44 +21,38 @@
         <!--<img class="card-img-top" src="..." alt="Card image cap">-->
         <div class="card-body">
             <h5 class="card-title">Departamentos de {{ $loja->nome }}</h5>
-            <p class="card-text">Lista de departamentos.</p>
+            <p class="card-text">Lista de produtos.</p>
             <div class="row">
                 <div class="col-md-12">
-                    Use o link "http://servidor/departamento/id" para retornar um json da departamento.
+                    Use o link "http://servidor/produto/id" para retornar um json do produto.
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-5">
                     <b>ID</b>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <b>Nome</b>
                 </div>
-                <div class="col-md-2">
-                    <b>Loja</b>
-                </div>
             </div>
-            @foreach( $departamentos as $departamento)
+            @foreach( $produtos as $produto)
             <div class="row">
-                <div class="col-md-1">
-                    {{ $departamento->departamento_id }}
+                <div class="col-md-5">
+                    {{ $produto->produto_id }}
                 </div>
-                <div class="col-md-7">
-                    <a href="{{ route('produtos', $departamento->departamento_id) }}">{{ $departamento->nome }}</a>
-                </div>
-                <div class="col-md-2">
-                    {{ $loja->nome }}
+                <div class="col-md-5">
+                    {{ $produto->nome }}
                 </div>
                 <div class="col-md-1">
-                    <a class="btn btn-primary" href="{{ route('departamento.edit', $departamento->departamento_id) }}">Editar</a>
+                    <a class="btn btn-primary" href="{{ route('produto.edit', $produto->produto_id) }}">Editar</a>
                 </div>
                 <div class="col-md-1">
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ $departamento->departamento_id  }}">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{ $produto->produto_id  }}">
                         Excluir
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="modal-{{ $departamento->departamento_id  }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-{{ $produto->produto_id  }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -56,14 +60,14 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Excluir {{ $departamento->nome }}
+                                    Excluir {{ $produto->nome }}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="button" class="btn btn-danger" onclick='$("#{{ $departamento->departamento_id  }}").submit();'>Deletar</button>
+                                    <button type="button" class="btn btn-danger" onclick='$("#{{ $produto->produto_id  }}").submit();'>Deletar</button>
                                 </div>
                             </div>
-                            <form id="{{ $departamento->departamento_id  }}" action="{{ route ('departamento.destroy', $departamento->departamento_id ) }}" method="post">
+                            <form id="{{ $produto->produto_id  }}" action="{{ route ('produto.destroy', $produto->produto_id ) }}" method="post">
                                 {{ csrf_field() }}
                                 <input type='hidden' name='_method' value='DELETE' />
                             </form>

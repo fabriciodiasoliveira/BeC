@@ -24,6 +24,14 @@ Route::post('departamentos', [DepartamentoController::class, 'store'])->name('de
 Route::get('departamentos/edit/{id}', [DepartamentoController::class, 'edit'])->name('departamento.edit');
 Route::put('departamentos/update/{id}', [DepartamentoController::class, 'update'])->name('departamento.update');
 Route::delete('departamentos/destroy/{id}', [DepartamentoController::class, 'destroy'])->name('departamento.destroy');
+//Produto
+Route::get('produtos/{id}', [ProdutoController::class, 'index'])->name('produtos');
+Route::get('produto/{id}', [ProdutoController::class, 'show'])->name('produto');
+Route::get('produtos/create/{id}', [ProdutoController::class, 'create'])->name('produto.create');
+Route::post('produtos', [ProdutoController::class, 'store'])->name('produto.store');
+Route::get('produtos/edit/{id}', [ProdutoController::class, 'edit'])->name('produto.edit');
+Route::put('produtos/update/{id}', [ProdutoController::class, 'update'])->name('produto.update');
+Route::delete('produtos/destroy/{id}', [ProdutoController::class, 'destroy'])->name('produto.destroy');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
