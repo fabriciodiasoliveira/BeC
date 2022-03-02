@@ -18,11 +18,18 @@
             <h5 class="card-title">Departamentos de {{ $loja->nome }}</h5>
             <p class="card-text">Lista de departamentos.</p>
             <div class="row">
+                <div class="col-md-12">
+                    Use o link "http://{{ $_SERVER['HTTP_HOST'] }}/departamento/id" para retornar um json do departamento.
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-1">
                     <b>ID</b>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <b>Nome</b>
+                </div>
+                    <b>JSON</b>
                 </div>
                 <div class="col-md-2">
                     <b>Loja</b>
@@ -33,8 +40,11 @@
                 <div class="col-md-1">
                     {{ $departamento->departamento_id }}
                 </div>
-                <div class="col-md-7">
-                    <a href="{{ route('produtos', $departamento->departamento_id) }}">{{ $departamento->nome }}</a>
+                <div class="col-md-6">
+                    <a class="btn btn-primary" href="{{ route('produtos', $departamento->departamento_id) }}">Detalhes</a>{{ $departamento->nome }}
+                </div>
+                <div class="col-md-1">
+                    <a class="btn btn-primary" href="http://{{ $_SERVER['HTTP_HOST'] }}/produto/departamento/{{ $departamento->departamento_id }}">JSON</a>
                 </div>
                 <div class="col-md-2">
                     {{ $loja->nome }}

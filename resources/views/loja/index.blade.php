@@ -16,8 +16,10 @@
                 <div class="col-md-1">
                     <b>ID</b>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <b>Nome</b>
+                </div>
+                    <b>JSON</b>
                 </div>
                 <div class="col-md-1">
                     <b>Latitude</b>
@@ -31,8 +33,11 @@
                 <div class="col-md-1">
                     {{ $loja->loja_id }}
                 </div>
-                <div class="col-md-7">
-                    <a href="{{ route('departamentos', $loja->loja_id) }}">{{ $loja->nome }}</a>
+                <div class="col-md-6">
+                    <a class="btn btn-primary" href="{{ route('departamentos', $loja->loja_id) }}">Detalhes</a>{{ $loja->nome }}
+                </div>
+                <div class="col-md-1">
+                    <a class="btn btn-primary" href="http://{{ $_SERVER['HTTP_HOST'] }}/produto/loja/{{ $loja->loja_id }}">JSON</a>
                 </div>
                 <div class="col-md-1">
                     {{ $loja->lat }}
