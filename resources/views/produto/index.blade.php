@@ -28,20 +28,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-1">
                     <b>ID</b>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <b>Nome</b>
+                </div>
+                <div class="col-md-1">
+                    <b>JSON</b>
+                </div>
+                <div class="col-md-4">
+                    <b>Preço</b>
                 </div>
             </div>
             @foreach( $produtos as $produto)
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-1">
                     {{ $produto->produto_id }}
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     {{ $produto->nome }}
+                </div>
+                <div class="col-md-1">
+                    <a class="btn btn-primary" href="http://{{ $_SERVER['HTTP_HOST'] }}/produto/{{ $produto->produto_id }}">JSON</a>
+                </div>
+                <div class="col-md-4">
+                    {{ $produto->preco }}
                 </div>
                 <div class="col-md-1">
                     <a class="btn btn-primary" href="{{ route('produto.edit', $produto->produto_id) }}">Editar</a>

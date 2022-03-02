@@ -20,7 +20,7 @@ class ProdutoController extends Controller
     public function setData(Request $request) {
         $data = [
             'nome' => $request['nome'],
-            'preco' => $request['preco'],
+            'preco' => str_replace(',', '.', $request['preco']),
             'loja_id' => $request['loja_id'],
             'departamento_id' => $request['departamento_id'],
         ];
@@ -42,7 +42,7 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         $this->model_produto->store($this->setData($request));
-        return redirect(route('produtos'))->with('success', 'Produto adicionado com sucesso');
+        return redirect(route('produtos', $request['departamento_id']))->with('success', 'Produto adicionado com sucesso');
     }
     public function show($id)
     {
@@ -52,17 +52,18 @@ class ProdutoController extends Controller
     public function edit($id)
     {
         $produto = $this->model_produto->getProduto($id);
-        
-        return view('produto.edit', compact('produto'));
+        $departamento = $this->model_departamento->getDepartamento($produto->departamento_id);
+        return view('produto.edit', compact('produto', 'departamento'));
     }
     public function update(Request $request, $id)
     {
         $this->model_produto->updateWingoutModel($id,$this->setData($request));
-        return redirect(route('produtos'))->with('success', 'Produto modificado com sucesso');   
+        return redirect(route('produtos', $request['departamento_id']))->with('success', 'Produto modificado com sucesso');   
     }
     public function destroy($id)
     {
+        $produto = $this->model_produto->getProduto($id);
         $this->model_produto->remove($id);
-        return redirect(route('produtos'))->with('info', 'Produto eliminado com sucesso'); 
+        return redirect(route('produtos', $produto->departamento_id))->with('info', 'Produto eliminado com sucesso'); 
     }
 }

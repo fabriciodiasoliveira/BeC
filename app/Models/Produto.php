@@ -22,7 +22,7 @@ class Produto extends Model
         return $produtos_formatados;
     }
     public function remove($id){
-        Produto::destroy($id);
+        Produto::where('produto_id', $id)->delete();
     }
     public function store(array $options = [])
     {

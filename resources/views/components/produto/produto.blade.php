@@ -41,7 +41,7 @@
 </form>
 @else
 <form class="form-horizontal" method="POST" action="{{ route('produto.update', $produto->produto_id) }} ">
-    <input type="hidden" name="departamento_id" value="{{ $departamento->departamento_id }}"/>
+    <input type="hidden" name="departamento_id" value="{{ $produto->departamento_id }}"/>
     <input type="hidden" name="produto_id" value="{{ $produto->produto_id }}"/>
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="PUT" />
@@ -62,7 +62,7 @@
         <label for="preco" class="col-md-4 col-form-label text-md-end">{{ __('Preço em reais') }}</label>
 
         <div class="col-md-6">
-            <input id="preco" type="preco" class="form-control @error('preco') is-invalid @enderror" name="preco" value="{{ $produto->preco }}" required autocomplete="preco" autofocus>
+            <input id="preco" type="preco" class="form-control @error('preco') is-invalid @enderror" name="preco" value="{{ $produto->preco = number_format($produto->preco, 2, ',','') }}" required autocomplete="preco" autofocus>
 
             @error('preco')
             <span class="invalid-feedback" role="alert">

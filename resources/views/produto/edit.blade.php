@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Alterar departamento</h5>
                     <p class="card-text">Modifique os dados da departamento.</p>
-                    @component('components.departamento.departamento', compact('departamento'))@endcomponent
+                    @component('components.produto.produto', compact('produto', 'departamento'))@endcomponent
                 </div>
             </div>
         </div>
