@@ -6,7 +6,7 @@
         <label for="nome" class="col-md-4 col-form-label text-md-end">{{ __('Nome do Departamento') }}</label>
 
         <div class="col-md-6">
-            <input id="nome" type="nome" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
+            <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
 
             @error('nome')
             <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
         <label for="nome" class="col-md-4 col-form-label text-md-end">{{ __('Nome do Departamento') }}</label>
 
         <div class="col-md-6">
-            <input id="nome" type="nome" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ $departamento->nome }}" required autocomplete="nome" autofocus>
+            <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ $departamento->nome }}" required autocomplete="nome" autofocus>
 
             @error('nome')
             <span class="invalid-feedback" role="alert">

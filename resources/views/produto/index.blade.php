@@ -29,7 +29,7 @@
             </div>
             <div class="row">
                 <div class="col-md-1">
-                    <b>ID</b>
+                    <b>Imagem</b>
                 </div>
                 <div class="col-md-4">
                     <b>Nome</b>
@@ -44,7 +44,7 @@
             @foreach( $produtos as $produto)
             <div class="row">
                 <div class="col-md-1">
-                    {{ $produto->produto_id }}
+                    <img src="{{ $produto->imagem }}"/>
                 </div>
                 <div class="col-md-4">
                     {{ $produto->nome }}

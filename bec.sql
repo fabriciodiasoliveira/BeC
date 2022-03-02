@@ -21,6 +21,7 @@ CREATE TABLE produto(
 	produto_id BIGINT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(255),
 	preco DECIMAL,
+        imagem VARCHAR(255),
 	loja_id BIGINT,
 	departamento_id BIGINT,
 	`created_at` timestamp NULL DEFAULT current_timestamp(),

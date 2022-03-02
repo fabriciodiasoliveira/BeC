@@ -5,7 +5,7 @@
         <label for="nome" class="col-md-4 col-form-label text-md-end">{{ __('Nome da Loja') }}</label>
 
         <div class="col-md-6">
-            <input id="nome" type="nome" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
+            <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ old('nome') }}" required autocomplete="nome" autofocus>
 
             @error('nome')
             <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
         <label for="lat" class="col-md-4 col-form-label text-md-end">{{ __('Latitude') }}</label>
 
         <div class="col-md-6">
-            <input id="lat" type="lat" class="form-control @error('lat') is-invalid @enderror" name="lat" value="{{ old('lat') }}" required autocomplete="lat" autofocus>
+            <input id="lat" type="text" class="form-control @error('lat') is-invalid @enderror" name="lat" value="{{ old('lat') }}" required autocomplete="lat" autofocus>
 
             @error('lat')
             <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
         <label for="longt" class="col-md-4 col-form-label text-md-end">{{ __('Longitude') }}</label>
 
         <div class="col-md-6">
-            <input id="longt" type="longt" class="form-control @error('longt') is-invalid @enderror" name="longt" value="{{ old('longt') }}" required autocomplete="longt" autofocus>
+            <input id="longt" type="text" class="form-control @error('longt') is-invalid @enderror" name="longt" value="{{ old('longt') }}" required autocomplete="longt" autofocus>
 
             @error('longt')
             <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
         <label for="nome" class="col-md-4 col-form-label text-md-end">{{ __('Nome da Loja') }}</label>
 
         <div class="col-md-6">
-            <input id="nome" type="nome" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ $loja->nome }}" required autocomplete="nome" autofocus>
+            <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" value="{{ $loja->nome }}" required autocomplete="nome" autofocus>
 
             @error('nome')
             <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
         <label for="lat" class="col-md-4 col-form-label text-md-end">{{ __('Latitude') }}</label>
 
         <div class="col-md-6">
-            <input id="lat" type="lat" class="form-control @error('lat') is-invalid @enderror" name="lat" value="{{ $loja->lat }}" required autocomplete="lat" autofocus>
+            <input id="lat" type="text" class="form-control @error('lat') is-invalid @enderror" name="lat" value="{{ $loja->lat }}" required autocomplete="lat" autofocus>
 
             @error('lat')
             <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
         <label for="longt" class="col-md-4 col-form-label text-md-end">{{ __('Longitude') }}</label>
 
         <div class="col-md-6">
-            <input id="longt" type="longt" class="form-control @error('longt') is-invalid @enderror" name="longt" value="{{ $loja->longt }}" required autocomplete="longt" autofocus>
+            <input id="longt" type="text" class="form-control @error('longt') is-invalid @enderror" name="longt" value="{{ $loja->longt }}" required autocomplete="longt" autofocus>
 
             @error('longt')
             <span class="invalid-feedback" role="alert">

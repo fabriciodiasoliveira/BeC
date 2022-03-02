@@ -32,6 +32,14 @@ class Produto extends Model
     {
         return Produto::query()->select('*')->where('produto_id', '=', $id)->first();
     }
+    public function getProdutoLoja($id)
+    {
+        return Produto::query()->select('*')->where('loja_id', '=', $id)->get();
+    }
+    public function getProdutoDepartamento($id)
+    {
+        return Produto::query()->select('*')->where('departamento_id', '=', $id)->get();
+    }
     public function updateWingoutModel($id, Array $options)
     {
         Produto::query()->where('produto_id', '=', $id)->update($options);

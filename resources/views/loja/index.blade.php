@@ -13,19 +13,11 @@
             <h5 class="card-title">Nossas lojas</h5>
             <p class="card-text">Lista de lojas.</p>
             <div class="row">
-                <div class="col-md-12">
-                    Use o link "http://{{ $_SERVER['HTTP_HOST'] }}/loja/id" para retornar um json da loja.
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-md-1">
                     <b>ID</b>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <b>Nome</b>
-                </div>
-                <div class="col-md-1">
-                    <b>JSON</b>
                 </div>
                 <div class="col-md-1">
                     <b>Latitude</b>
@@ -39,11 +31,8 @@
                 <div class="col-md-1">
                     {{ $loja->loja_id }}
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-7">
                     <a href="{{ route('departamentos', $loja->loja_id) }}">{{ $loja->nome }}</a>
-                </div>
-                <div class="col-md-1">
-                    <a class="btn btn-primary" href="http://{{ $_SERVER['HTTP_HOST'] }}/loja/{{ $loja->loja_id }}">JSON</a>
                 </div>
                 <div class="col-md-1">
                     {{ $loja->lat }}
